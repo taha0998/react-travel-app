@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 const Dashboard = () => {
   const [posts, setPosts] = useState(null);
   const [mode, setMode] = useState(null);
+  const url = process.env.REACT_APP_API_BASE_URL;
+
   const fetchData = async () => {
     try {
-      const response = await axios("http://localhost:8000/posts");
+      const response = await axios(`${url}`);
       const dataObject = response.data.data;
       const arrayOfData = Object.keys(dataObject).map((key) => [
         key,
