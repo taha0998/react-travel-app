@@ -4,7 +4,7 @@ const Card = ({ post }) => {
   return (
     <div className="card-container">
       <div className="img-container">
-        <img src={post.photo} alt={`A photo of ${post.title}`} />
+        <img src={post.photo} alt={post.title} />
       </div>
       <div className="info-container">
         <h3>{post.title}</h3>
@@ -19,3 +19,4 @@ const Card = ({ post }) => {
   );
 };
 export default Card;
+
