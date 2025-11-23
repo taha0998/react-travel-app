@@ -10,10 +10,14 @@ const Post = () => {
 
   const { id } = useParams();
   const Navigate = useNavigate();
+  
+  const url = process.env.REACT_APP_API_BASE_URL;
+  const baseUrl = url.replace('/posts', '');
+    console.log(url, baseUrl)
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/posts/${id}`);
+      const response = await axios.get(`${url}/${id}`);
       setPost(response.data);
     } catch (error) {
       console.error(error);
@@ -21,7 +25,7 @@ const Post = () => {
   }, [id]);
 
   const deletePost = async () => {
-    const response = await axios.delete(`http://localhost:8000/delete/${id}`);
+    const response = await axios.delete(`${baseUrl}/delete/${id}`);
     const success = response.status === 200;
     if (success) {
       Navigate("/");
@@ -71,3 +75,4 @@ const Post = () => {
   );
 };
 export default Post;
+
