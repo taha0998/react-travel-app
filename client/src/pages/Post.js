@@ -12,8 +12,6 @@ const Post = () => {
   const Navigate = useNavigate();
   
   const url = process.env.REACT_APP_API_BASE_URL;
-  const baseUrl = url.replace('/posts', '');
-    console.log(url, baseUrl)
 
   const fetchData = useCallback(async () => {
     try {
@@ -25,7 +23,7 @@ const Post = () => {
   }, [id]);
 
   const deletePost = async () => {
-    const response = await axios.delete(`${baseUrl}/delete/${id}`);
+    const response = await axios.delete(`${url}/delete/${id}`);
     const success = response.status === 200;
     if (success) {
       Navigate("/");
@@ -75,5 +73,6 @@ const Post = () => {
   );
 };
 export default Post;
+
 
 
