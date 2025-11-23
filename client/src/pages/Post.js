@@ -10,8 +10,11 @@ const Post = () => {
 
   const { id } = useParams();
   const Navigate = useNavigate();
-  
-  const url = process.env.REACT_APP_API_BASE_URL;
+
+    const url =
+    process.env.NODE_ENV === "devlompent"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_BASE_URL;
 
   const fetchData = useCallback(async () => {
     try {
@@ -73,6 +76,7 @@ const Post = () => {
   );
 };
 export default Post;
+
 
 
 
