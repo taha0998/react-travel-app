@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Modal from "../components/Modal";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,14 +11,15 @@ const Post = () => {
   const { id } = useParams();
   const Navigate = useNavigate();
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:8000/posts/${id}`);
       setPost(response.data);
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [id]);
+
   const deletePost = async () => {
     const response = await axios.delete(`http://localhost:8000/delete/${id}`);
     const success = response.status === 200;
@@ -29,7 +30,7 @@ const Post = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <div className="post-page">
@@ -51,7 +52,11 @@ const Post = () => {
         <div className="image-container">
           {/* <Map /> */}
           <MapComponent coords={post?.data.address.coords} />
-          <img className="post-img" src={post?.data.photo} alt={post?.data.title} />
+          <img
+            className="post-img"
+            src={post?.data.photo}
+            alt={post?.data.title}
+          />
         </div>
         {mode && (
           <Modal
