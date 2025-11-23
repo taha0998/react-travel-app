@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios(`${url}`);
+      const response = await axios(`${url}/posts`);
       const dataObject = response.data.data;
       const arrayOfData = Object.keys(dataObject).map((key) => [
         key,
@@ -57,3 +57,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
