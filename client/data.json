@@ -1,0 +1,15 @@
+{
+  "id": 0,
+  "title": "Loften Islands",
+  "address": {
+    "line": "House 45",
+    "town": "Flakstad",
+    "region": "Lofoten",
+    "country": "Norway",
+    "coords": [13.61514, 68.148995]
+  },
+  "photo": "https://res.cloudinary.com/gofjords-com/images/c_scale,w_1400,h_927/f_auto,q_auto/v1685123554/Brand%20pictures/XXLofoten/Svolvaer-Lofoten-Mountain-hiker-XXLofoten/Svolvaer-Lofoten-Mountain-hiker-XXLofoten.jpg",
+  "website": "https://www.fjordtravel.no",
+  "description": "Amazing Lofoten Islands",
+  "tags": ["nature", "hiking", "mountains"]
+}
