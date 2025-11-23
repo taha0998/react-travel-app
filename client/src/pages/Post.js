@@ -17,7 +17,7 @@ const Post = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.get(`${url}/${id}`);
+      const response = await axios.get(`${url}/posts/${id}`);
       setPost(response.data);
     } catch (error) {
       console.error(error);
@@ -75,4 +75,5 @@ const Post = () => {
   );
 };
 export default Post;
+
 
