@@ -23,6 +23,11 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
 
   const createMode = mode === "create";
 
+  const url =
+    process.env.NODE_ENV === "devlompent"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_BASE_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -42,7 +47,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
     };
     try {
       if (createMode) {
-        const response = await axios.post("http://localhost:8000/create/", {
+        const response = await axios.post(`${url}/create/`, {
           data,
         });
 
@@ -53,7 +58,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
         } else console.error(response);
       } else {
         const response = await axios.put(
-          `http://localhost:8000/edit/${currentPost.documentId}`,
+          `${url}/edit/${currentPost.documentId}`,
           {
             data,
           }
