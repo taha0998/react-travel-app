@@ -7,7 +7,10 @@ import { useEffect, useState } from "react";
 const Dashboard = () => {
   const [posts, setPosts] = useState(null);
   const [mode, setMode] = useState(null);
-  const url = process.env.REACT_APP_API_BASE_URL;
+    const url =
+    process.env.NODE_ENV === "devlompent"
+      ? "http://localhost:8000"
+      : process.env.REACT_APP_API_BASE_URL;
 
   const fetchData = async () => {
     try {
@@ -57,4 +60,5 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
 
