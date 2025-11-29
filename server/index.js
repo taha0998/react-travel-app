@@ -10,9 +10,9 @@ app.use(express.json());
 
 const corsOptions = {
   origin: [
-    'http://localhost:3000', // Local development
-    'https://your-vercel-project.vercel.app', // Add your actual Vercel URL here
-    'https://www.your-vercel-project.vercel.app' // WWW version too
+    'http://localhost:3000',
+    'https://your-vercel-project.vercel.app', 
+    'https://www.your-vercel-project.vercel.app' 
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
@@ -124,4 +124,5 @@ app.delete("/delete/:postId", async (req, res) => {
 });
 
 app.listen(PORT, console.log("Server is running on PORT " + PORT));
+
 
