@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 const Dashboard = () => {
   const [posts, setPosts] = useState(null);
   const [mode, setMode] = useState(null);
-    const url =
-    process.env.NODE_ENV === "devlompent"
+  const url =
+    process.env.NODE_ENV === "development"
       ? "http://localhost:8000"
       : process.env.REACT_APP_API_BASE_URL;
 
@@ -22,7 +22,7 @@ const Dashboard = () => {
       ]);
       setPosts(arrayOfData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -60,5 +60,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
