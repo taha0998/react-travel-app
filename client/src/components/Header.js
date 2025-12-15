@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../images/traventure-logo.png";
-import avatar from "../images/profile-picture.png";
+
 
 const Header = () => {
   return (
@@ -14,10 +14,11 @@ const Header = () => {
         <div className="header-item-container">
           <p>Log out</p>
           <p>ⓘ Language</p>
-          <img className="avatar" src={avatar} alt="user avatar" />
+          <img className="avatar" src='https://e70x2rgj32.ufs.sh/f/mLxRkXyU7PNdLkWXjxCWnUqalpC14NxyOkLtSEFB5wKjMhPd' alt="user avatar" />
         </div>
       </div>
     </header>
   );
 };
 export default Header;
+
